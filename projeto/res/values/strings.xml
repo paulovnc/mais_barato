@@ -5,4 +5,10 @@
     <string name="action_settings">Settings</string>
     <string name="hello_world">Hello world!</string>
     <string name="mensagem_escolha">Qual produto você quer compararɁ</string>
+    <string name="comparacao_mensagem_configuracao_produto">Escolha o tipo de lata e preço da cervejaɁ</string>
+    <string name="comparacao_mensagem_produto_1">Primeira cerveja: </string>
+    <string name="comparacao_mensagem_produto_2">Segunda cerveja: </string>
+    <string name="comparacao_botao_comparar">Comparar</string>
+    <string name="comparacao_preco">Preço</string>
+    <string name="comparacao_peso">Peso</string>
 </resources>
