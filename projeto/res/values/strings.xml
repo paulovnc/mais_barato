@@ -11,4 +11,8 @@
     <string name="comparacao_botao_comparar">Comparar</string>
     <string name="comparacao_preco">Preço</string>
     <string name="comparacao_peso">Peso</string>
+    <string name="comparacao_peso_250">250</string>
+    <string name="comparacao_peso_350">350</string>
+    <string name="comparacao_peso_473">473</string>
+    <string name="comparacao_peso_outro_valor">Outro valor</string>
 </resources>
