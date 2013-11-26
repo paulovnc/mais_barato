@@ -16,24 +16,29 @@ public class ComparacaoActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.comparacao_activity);
-		//configurando eventos radiobutton da cerveja 1
-		RadioButton botaoOutroPrecoCerveja1 = (RadioButton) findViewById(R.id.radioButOutro1);
-		botaoOutroPrecoCerveja1.setOnClickListener(new OnClickListener() {
+		
+		//configuracao dos RadioButtons do RadioGroup da primeira cerveja
+		RadioButton radioButOutroCerv1 = (RadioButton) findViewById(R.id.radioButOutro1);
+		
+		radioButOutroCerv1.setOnClickListener(new OnClickListener() {
+			
 			@Override
 			public void onClick(View v) {
 				EditText edtOutroPeso = (EditText) findViewById(R.id.editTextPesoEspecificoCerveja1);
-				edtOutroPeso.setVisibility(EditText.VISIBLE);
+				if(edtOutroPeso.getVisibility() == EditText.INVISIBLE)
+					edtOutroPeso.setVisibility(EditText.VISIBLE); 
 			}
 		});
-		//configurando evendo radiobutton da cerveja 2
-		RadioButton botaoOutroPrecoCerveja2 = (RadioButton) findViewById(R.id.radioButOutro2);
-		RadioGroup group2 = (RadioGroup) findViewById(R.id.radioGroupPesoCerveja1);
 		
-		botaoOutroPrecoCerveja2.setOnClickListener(new OnClickListener() {
+		RadioButton radioButOutroCerv2 = (RadioButton) findViewById(R.id.radioButOutro2);
+		
+		radioButOutroCerv2.setOnClickListener(new OnClickListener() {
+			
 			@Override
 			public void onClick(View v) {
-				EditText edtOutroPeso = (EditText) findViewById(R.id.editTextPesoEspecificoCerveja2);
-				edtOutroPeso.setVisibility(EditText.VISIBLE);
+				EditText edtOutroPeso2 = (EditText) findViewById(R.id.editTextPesoEspecificoCerveja2);
+				if(edtOutroPeso2.getVisibility() == EditText.INVISIBLE)
+					edtOutroPeso2.setVisibility(EditText.VISIBLE); 
 			}
 		});
 		
@@ -85,17 +90,19 @@ public class ComparacaoActivity extends Activity {
 							pesoCerveja2 = 473.0f;
 							break;
 						case R.id.radioButOutro2:
-							dados = (EditText) findViewById(R.id.editTextPesoEspecificoCerveja1);
+							dados = (EditText) findViewById(R.id.editTextPesoEspecificoCerveja2);
 							pesoCerveja2 = Float.parseFloat(dados.getText().toString());
 							break;
 					}
 					
 					if(( Math.round(pesoCerveja1) == 0) || (Math.round(pesoCerveja2) == 0) )
 						throw new ArithmeticException();
-					if( (precoCerveja1/pesoCerveja1) < (precoCerveja2/pesoCerveja2) )
-						Toast.makeText(v.getContext(), "A primeira cerveja é a mais barata.", Toast.LENGTH_LONG).show();
+					float cerveja1 = pesoCerveja1/precoCerveja1;
+					float cerveja2 = pesoCerveja2/precoCerveja2;
+					if( (cerveja1) > (cerveja2) )
+						Toast.makeText(v.getContext(), "A primeira cerveja é a mais barata. "+cerveja1+" "+cerveja2, Toast.LENGTH_LONG).show();
 					else
-						Toast.makeText(v.getContext(), "A segunda cerveja é a mais barata.", Toast.LENGTH_LONG).show();
+						Toast.makeText(v.getContext(), "A segunda cerveja é a mais barata. "+cerveja1+" "+cerveja2, Toast.LENGTH_LONG).show();
 				}catch(NumberFormatException ex){
 					Log.e("ComparacaoActivity", "Erro durante a conversão dos numeros " + ex.getMessage());
 					Toast.makeText(v.getContext(), "Erro durante o cálculo. É preciso preencher todos os campos", Toast.LENGTH_SHORT).show();
