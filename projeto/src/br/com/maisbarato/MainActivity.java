@@ -21,5 +21,15 @@ public class MainActivity extends Activity {
 				startActivity(it);
 			}
 		});
+		
+		ImageButton botaoGarrafaCerveja = (ImageButton) findViewById(R.id.imagemGarrafaCerveja);
+		botaoGarrafaCerveja.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				Intent it = new Intent("br.com.maisbarato.COMPARAR_GARRAFA");
+				it.addCategory("br.com.maisbarato.AVALIACAO");
+				startActivity(it);
+			}
+		});
 	}
 }

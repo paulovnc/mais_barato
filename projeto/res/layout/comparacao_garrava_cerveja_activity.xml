@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/apresentacao"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:text="@string/comparacao_garrafa_mensagem_configuracao_produto" />
+
+    <TextView
+        android:id="@+id/primeiraGarrafaView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/apresentacao"
+        android:layout_marginTop="14dp"
+        android:text="@string/comparacao_garrafa_mensagem_produto_1" />
+
+    <EditText
+        android:id="@+id/precoGarrafa1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignRight="@+id/primeiraGarrafaView"
+        android:layout_below="@+id/primeiraGarrafaView"
+        android:layout_marginTop="17dp"
+        android:ems="10"
+        android:inputType="numberDecimal" >
+
+        <requestFocus />
+    </EditText>
+
+    <Spinner
+        android:id="@+id/pesosGarrafa1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/primeiraGarrafaView"
+        android:layout_marginLeft="30dp"
+        android:layout_toRightOf="@+id/precoGarrafa1" />
+    
+</RelativeLayout>
+
+

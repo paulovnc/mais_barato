@@ -15,5 +15,14 @@
     <string name="comparacao_peso_350">350</string>
     <string name="comparacao_peso_473">473</string>
     <string name="comparacao_peso_outro_valor">Outro valor</string>
+    <string name="comparacao_garrafa_peso_275">275</string>
+    <string name="comparacao_garrafa_peso_350">350</string>
+    <string name="comparacao_garrafa_peso_355">355</string>
+    <string name="comparacao_garrafa_peso_500">500</string>
+    <string name="comparacao_garrafa_peso_600">600</string>
+    <string name="comparacao_garrafa_peso_1000">1 litro</string>
+    <string name="comparacao_garrafa_mensagem_configuracao_produto">Escolha o tipo de garrafa e preço da cerveja?</string>
+    <string name="comparacao_garrafa_mensagem_produto_1">Primeira cerveja: </string>
+    <string name="comparacao_garrafa_mensagem_produto_2">Segunda cerveja: </string>
     <string name="main_desc_lata_cerveja">Comparação entre latas de cerveja</string>
 </resources>

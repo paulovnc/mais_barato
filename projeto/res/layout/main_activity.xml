@@ -24,4 +24,14 @@
         android:contentDescription="@string/main_desc_lata_cerveja"
         android:src="@drawable/antarctica_350" />
 
+        <ImageButton
+            android:id="@+id/imagemGarrafaCerveja"
+            android:layout_width="113dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/imagemLataCerveja"
+            android:layout_marginTop="41dp"
+            android:contentDescription="@string/main_desc_lata_cerveja"
+            android:src="@drawable/garrafa_cerveja_350" />
+
 </RelativeLayout>
