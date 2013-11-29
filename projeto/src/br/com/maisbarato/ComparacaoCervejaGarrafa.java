@@ -10,6 +10,7 @@ import android.widget.Spinner;
 
 public class ComparacaoCervejaGarrafa extends Activity {
 	private Spinner pesosGarrafa1;
+	private Spinner pesosGarrafa2;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -25,6 +26,13 @@ public class ComparacaoCervejaGarrafa extends Activity {
 		pesos.add(getResources().getString(R.string.comparacao_garrafa_peso_1000));
 		
 		ArrayAdapter<String> adaptador = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, pesos);
+		adaptador.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 		pesosGarrafa1.setAdapter(adaptador);
+		pesosGarrafa1.setOnItemSelectedListener(new SpinnerItemSelectedListener());
+		
+		//valores a serem adicionados no segundo spinner
+		pesosGarrafa2 = (Spinner) findViewById(R.id.pesosGarrafa2);
+		pesosGarrafa2.setAdapter(adaptador);
+		pesosGarrafa2.setOnItemSelectedListener(new SpinnerItemSelectedListener());
 	}
 }
