@@ -12,15 +12,6 @@
         android:layout_alignParentTop="true"
         android:text="@string/comparacao_garrafa_mensagem_configuracao_produto" />
 
-	<TextView
-	    android:id="@+id/segundaGarrafaView"
-	    android:layout_width="wrap_content"
-	    android:layout_height="wrap_content"
-	    android:layout_alignParentLeft="true"
-	    android:layout_below="@+id/pesosGarrafa1"
-	    android:layout_marginTop="27dp"
-	    android:text="@string/comparacao_garrafa_mensagem_produto_2" />
-
     <TextView
         android:id="@+id/primeiraGarrafaView"
         android:layout_width="wrap_content"
@@ -42,6 +33,7 @@
         android:id="@+id/precoGarrafa1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/precoGarrafa2"
         android:layout_below="@+id/primeiraGarrafaView"
         android:layout_marginLeft="21dp"
         android:layout_marginTop="15dp"
@@ -57,8 +49,70 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/precoGarrafa1"
-        android:layout_below="@+id/precoGarrafa1"
-        android:layout_marginTop="14dp" />
+        android:layout_below="@+id/precoGarrafa1" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/segundaGarrafaView"
+        android:layout_marginTop="16dp"
+        android:text="@string/comparacao_garrafa_preco" />
+
+    <EditText
+        android:id="@+id/precoGarrafa2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/textView3"
+        android:layout_alignBottom="@+id/textView3"
+        android:layout_toRightOf="@+id/textViewPesoEspecificoGarrafa1"
+        android:ems="10"
+        android:inputType="numberDecimal" />
+
+    <TextView
+        android:id="@+id/textViewPesoEspecificoGarrafa2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/pesosGarrafa2"
+        android:text="@string/comparacao_garrafa_peso_distinto" />
+
+    <EditText
+        android:id="@+id/pesoDistintoGarrafa2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/pesosGarrafa2"
+        android:layout_below="@+id/pesosGarrafa2"
+        android:ems="10"
+        android:inputType="numberDecimal" />
+
+    <TextView
+        android:id="@+id/segundaGarrafaView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/textViewPesoEspecificoGarrafa1"
+        android:layout_marginTop="43dp"
+        android:text="@string/comparacao_garrafa_mensagem_produto_2" />
+
+    <TextView
+        android:id="@+id/textViewPesoEspecificoGarrafa1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/pesoDistintoGarrafa1"
+        android:layout_alignBottom="@+id/pesoDistintoGarrafa1"
+        android:layout_alignParentLeft="true"
+        android:text="@string/comparacao_garrafa_peso_distinto" />
+
+    <EditText
+        android:id="@+id/pesoDistintoGarrafa1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/precoGarrafa2"
+        android:layout_below="@+id/pesosGarrafa1"
+        android:ems="10"
+        android:inputType="numberDecimal" />
 
     <TextView
         android:id="@+id/textView2"
@@ -66,35 +120,8 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignTop="@+id/pesosGarrafa1"
-        android:layout_toLeftOf="@+id/precoGarrafa1"
+        android:layout_marginTop="22dp"
         android:text="@string/comparacao_garrafa_peso" />
-
-    <EditText
-        android:id="@+id/precoGarrafa2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/pesosGarrafa1"
-        android:layout_below="@+id/segundaGarrafaView"
-        android:layout_marginTop="32dp"
-        android:ems="10"
-        android:inputType="numberDecimal" />
-
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/precoGarrafa2"
-        android:layout_alignBottom="@+id/precoGarrafa2"
-        android:layout_toLeftOf="@+id/precoGarrafa1"
-        android:text="@string/comparacao_garrafa_preco" />
-
-    <Spinner
-        android:id="@+id/pesosGarrafa2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/precoGarrafa2"
-        android:layout_alignParentRight="true"
-        android:layout_alignTop="@+id/textView4" />
 
     <TextView
         android:id="@+id/textView4"
@@ -102,8 +129,22 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/precoGarrafa2"
-        android:layout_marginTop="38dp"
-        android:layout_toLeftOf="@+id/precoGarrafa1"
+        android:layout_marginTop="16dp"
         android:text="@string/comparacao_garrafa_peso" />
+
+    <Spinner
+        android:id="@+id/pesosGarrafa2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/pesosGarrafa1"
+        android:layout_below="@+id/precoGarrafa2" />
+
+    <Button
+        android:id="@+id/buttonCompararGarrafas"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:text="@string/comparacao_botao_comparar" />
 
 </RelativeLayout>

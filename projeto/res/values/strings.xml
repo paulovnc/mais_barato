@@ -21,6 +21,7 @@
     <string name="comparacao_garrafa_peso_500">500</string>
     <string name="comparacao_garrafa_peso_600">600</string>
     <string name="comparacao_garrafa_peso_1000">1 litro</string>
+    <string name="comparacao_garrafa_peso_distinto">Outro peso</string>
     <string name="comparacao_garrafa_mensagem_configuracao_produto">Escolha o preço e o tipo de garrafa da cerveja?</string>
     <string name="comparacao_garrafa_mensagem_produto_1">Primeira cerveja: </string>
     <string name="comparacao_garrafa_mensagem_produto_2">Segunda cerveja: </string>
