@@ -12,177 +12,139 @@
         android:text="@string/comparacao_mensagem_configuracao_produto" >
     </TextView>
 
+    <TextView
+        android:id="@+id/textViewCeveja1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="26dp"
+        android:text="@string/comparacao_mensagem_produto_1" />
+
+    <TextView
+        android:id="@+id/textViewPesoLata1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/textViewCeveja1"
+        android:layout_marginTop="76dp"
+        android:text="@string/comparacao_peso" />
+
+    <TextView
+        android:id="@+id/textViewPrecoLata1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/textViewCeveja1"
+        android:layout_marginTop="15dp"
+        android:text="@string/comparacao_preco" />
+
+    <EditText
+        android:id="@+id/precoCerveja1"
+        android:layout_width="49dp"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/textViewPrecoLata1"
+        android:layout_alignBottom="@+id/textViewPrecoLata1"
+        android:layout_centerHorizontal="true"
+        android:ems="10"
+        android:inputType="numberDecimal" />
+
     <Button
         android:id="@+id/buttonCalcular"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
+        android:layout_centerHorizontal="true"
         android:layout_marginBottom="19dp"
         android:enabled="true"
         android:gravity="left"
         android:text="@string/comparacao_botao_comparar" />
 
-    <RelativeLayout
-        android:id="@+id/linearLayout1"
-        android:layout_width="match_parent"
+    <Spinner
+        android:id="@+id/spinnerPesosLata1"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/buttonCalcular"
-        android:layout_alignParentLeft="true"
-        android:layout_marginBottom="22dp"
-        android:orientation="horizontal" >
+        android:layout_alignLeft="@+id/buttonCalcular"
+        android:layout_alignTop="@+id/textViewPesoLata1" />
 
-        <TextView
-            android:id="@+id/textView2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/comparacao_mensagem_produto_2" />
-
-        <EditText
-            android:id="@+id/precoCerveja2"
-            android:layout_width="49dp"
-            android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_toRightOf="@+id/textView2"
-            android:ems="10"
-            android:inputType="numberDecimal" />
-
-        <RadioGroup
-            android:id="@+id/radioGroupPesoCerveja2"
-            android:layout_width="76dp"
-            android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_toRightOf="@+id/precoCerveja2" >
-
-            <RadioButton
-                android:id="@+id/radioButSeg250"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:checked="true"
-                android:text="@string/comparacao_peso_250" />
-
-            <RadioButton
-                android:id="@+id/radioButSeg350"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/comparacao_peso_350" />
-
-            <RadioButton
-                android:id="@+id/radioButSeg473"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/comparacao_peso_473" />
-
-            <RadioButton
-                android:id="@+id/radioButOutro2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/comparacao_peso_outro_valor" />
-        </RadioGroup>
-
-    </RelativeLayout>
-
-    <EditText
-        android:id="@+id/editTextPesoEspecificoCerveja2"
-        android:layout_width="match_parent"
+    <Spinner
+        android:id="@+id/spinnerPesosLata2"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/linearLayout1"
-        android:layout_alignParentRight="true"
-        android:layout_toRightOf="@+id/textViewPeso"
-        android:ems="10"
-        android:inputType="numberSigned"
-        android:visibility="invisible" />
+        android:layout_alignTop="@+id/textViewPesoLata2"
+        android:layout_toRightOf="@+id/textViewCeveja1" />
 
     <EditText
         android:id="@+id/editTextPesoEspecificoCerveja1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/linearLayout1"
-        android:layout_alignLeft="@+id/editTextPesoEspecificoCerveja2"
+        android:layout_alignBaseline="@+id/textViewPesoEspecifico1"
+        android:layout_alignBottom="@+id/textViewPesoEspecifico1"
+        android:layout_alignParentRight="true"
+        android:layout_toRightOf="@+id/textViewCeveja1"
         android:ems="10"
         android:inputType="numberSigned"
         android:visibility="invisible" />
 
-    <RelativeLayout
-        android:id="@+id/linearLayout2"
+    <TextView
+        android:id="@+id/textViewLata2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/textView2"
+        android:layout_marginTop="14dp"
+        android:text="@string/comparacao_preco" />
+
+    <EditText
+        android:id="@+id/precoCerveja2"
+        android:layout_width="49dp"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/textViewLata2"
+        android:layout_alignBottom="@+id/textViewLata2"
+        android:layout_alignLeft="@+id/precoCerveja1"
+        android:ems="10"
+        android:inputType="numberDecimal" />
+
+    <TextView
+        android:id="@+id/textViewPesoLata2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/precoCerveja2"
+        android:layout_marginTop="20dp"
+        android:text="@string/comparacao_peso" />
+
+    <TextView
+        android:id="@+id/TextViewPesoEspecifico2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/spinnerPesosLata2"
+        android:text="@string/comparacao_peso_outro_valor" />
+
+    <EditText
+        android:id="@+id/editTextPesoEspecificoCerveja2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/editTextPesoEspecificoCerveja1"
-        android:layout_alignParentRight="true"
-        android:orientation="horizontal" >
+        android:layout_alignBaseline="@+id/TextViewPesoEspecifico2"
+        android:layout_alignBottom="@+id/TextViewPesoEspecifico2"
+        android:layout_toRightOf="@+id/textViewCeveja1"
+        android:ems="10"
+        android:inputType="numberSigned"
+        android:visibility="invisible" />
 
-        <TextView
-            android:id="@+id/textViewCeveja1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/comparacao_mensagem_produto_1" />
-
-        <RadioGroup
-            android:id="@+id/radioGroupPesoCerveja1"
-            android:layout_width="75dp"
-            android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_marginLeft="55dp"
-            android:layout_toRightOf="@+id/textViewCeveja1" >
-
-            <RadioButton
-                android:id="@+id/radioBut250"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:checked="true"
-                android:text="@string/comparacao_peso_250" />
-
-            <RadioButton
-                android:id="@+id/radioBut350"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/comparacao_peso_350" />
-
-            <RadioButton
-                android:id="@+id/radioBut500"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/comparacao_peso_473" />
-
-            <RadioButton
-                android:id="@+id/radioButOutro1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/comparacao_peso_outro_valor" />
-        </RadioGroup>
-
-        <EditText
-            android:id="@+id/precoCerveja1"
-            android:layout_width="49dp"
-            android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_toRightOf="@+id/textViewCeveja1"
-            android:ems="10"
-            android:inputType="numberDecimal" >
-
-            <requestFocus />
-        </EditText>
-
-    </RelativeLayout>
-
-    <Button
-        android:id="@+id/textViewPreco"
+    <TextView
+        android:id="@+id/textViewPesoEspecifico1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/textViewPeso"
-        android:layout_alignBottom="@+id/textViewPeso"
-        android:layout_toRightOf="@+id/buttonCalcular"
-        android:text="@string/comparacao_preco"
-        android:clickable="false" />
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/spinnerPesosLata1"
+        android:text="@string/comparacao_peso_outro_valor" />
 
-    <Button
-        android:id="@+id/textViewPeso"
+    <TextView
+        android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/editTextApresentacao"
-        android:layout_marginTop="17dp"
-        android:layout_toRightOf="@+id/textViewPreco"
-        android:text="@string/comparacao_peso"
-        android:clickable="false" />
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:text="@string/comparacao_mensagem_produto_2" />
 
 </RelativeLayout>

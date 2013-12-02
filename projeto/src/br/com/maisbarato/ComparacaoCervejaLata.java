@@ -1,47 +1,67 @@
 package br.com.maisbarato;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import android.app.Activity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.RadioButton;
-import android.widget.RadioGroup;
+import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class ComparacaoCervejaLata extends Activity {
+	private Spinner pesosLata1;
+	private Spinner pesosLata2;
+	private EditText pesoDistintoLata1;
+	private EditText pesoDistintoLata2;
+	private TextView textViewPesoEspecifico1;
+	private TextView textViewPesoEspecifico2;
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.comparacao_activity);
+		setContentView(R.layout.comparacao_lata_cerveja);
 		
-		//configuracao dos RadioButtons do RadioGroup da primeira cerveja
-		RadioButton radioButOutroCerv1 = (RadioButton) findViewById(R.id.radioButOutro1);
+		//configurações iniciais da tela
+		textViewPesoEspecifico1 = (TextView) findViewById(R.id.textViewPesoEspecifico1);
+		textViewPesoEspecifico2 = (TextView) findViewById(R.id.TextViewPesoEspecifico2);
+		textViewPesoEspecifico1.setVisibility(TextView.INVISIBLE);
+		textViewPesoEspecifico2.setVisibility(TextView.INVISIBLE);
 		
-		radioButOutroCerv1.setOnClickListener(new OnClickListener() {
-			
-			@Override
-			public void onClick(View v) {
-				EditText edtOutroPeso = (EditText) findViewById(R.id.editTextPesoEspecificoCerveja1);
-				if(edtOutroPeso.getVisibility() == EditText.INVISIBLE)
-					edtOutroPeso.setVisibility(EditText.VISIBLE); 
-			}
-		});
-		
-		RadioButton radioButOutroCerv2 = (RadioButton) findViewById(R.id.radioButOutro2);
-		
-		radioButOutroCerv2.setOnClickListener(new OnClickListener() {
-			
-			@Override
-			public void onClick(View v) {
-				EditText edtOutroPeso2 = (EditText) findViewById(R.id.editTextPesoEspecificoCerveja2);
-				if(edtOutroPeso2.getVisibility() == EditText.INVISIBLE)
-					edtOutroPeso2.setVisibility(EditText.VISIBLE); 
-			}
-		});
-		
+		pesoDistintoLata1 = (EditText) findViewById(R.id.editTextPesoEspecificoCerveja1);
+		pesoDistintoLata2 = (EditText) findViewById(R.id.editTextPesoEspecificoCerveja2);
+		pesoDistintoLata1.setVisibility(TextView.INVISIBLE);
+		pesoDistintoLata2.setVisibility(TextView.INVISIBLE);
+
+		//configuracao dos Spinners
+		pesosLata1 = (Spinner) findViewById(R.id.spinnerPesosLata1);
+		pesosLata2 = (Spinner) findViewById(R.id.spinnerPesosLata2);
+
+		//Opções do Spinner
+		List<String> pesos = new ArrayList<String>();
+		pesos.add(getResources().getString(R.string.comparacao_peso_250));
+		pesos.add(getResources().getString(R.string.comparacao_peso_350));
+		pesos.add(getResources().getString(R.string.comparacao_peso_473));
+		pesos.add(getResources().getString(R.string.comparacao_peso_outro_valor));
+
+		//Definindo o adapter
+		ArrayAdapter<String> adaptador = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, pesos);
+		adaptador.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+		//Configurando Spinners
+		pesosLata1.setAdapter(adaptador);
+		pesosLata1.setOnItemSelectedListener(new SpinnerItemSelectedCervejaLataListener(pesoDistintoLata1, textViewPesoEspecifico1));
+
+		pesosLata2.setAdapter(adaptador);
+		pesosLata2.setOnItemSelectedListener(new SpinnerItemSelectedCervejaLataListener(pesoDistintoLata2,textViewPesoEspecifico2));
+
+
 		Button botaoComparar = (Button) findViewById(R.id.buttonCalcular);
 		botaoComparar.setOnClickListener(new OnClickListener() {
 			@Override
@@ -56,50 +76,48 @@ public class ComparacaoCervejaLata extends Activity {
 					//tratando do peso e preco da primeira cerveja
 					EditText dados = (EditText) findViewById(R.id.precoCerveja1);
 					precoCerveja1 = Float.parseFloat(dados.getText().toString());
-					RadioGroup pesosCerveja1 = (RadioGroup) findViewById(R.id.radioGroupPesoCerveja1);
-					escolha = pesosCerveja1.getCheckedRadioButtonId();
+					escolha = pesosLata1.getSelectedItemPosition();
 					switch(escolha){
-						case R.id.radioBut250:
+						case 0:
 							pesoCerveja1 = 250.0f;
 							break;
-						case R.id.radioBut350:
+						case 1:
 							pesoCerveja1 = 350.0f;
 							break;
-						case R.id.radioBut500:
+						case 2:
 							pesoCerveja1 = 473.0f;
 							break;
-						case R.id.radioButOutro1:
+						case 3:
 							dados = (EditText) findViewById(R.id.editTextPesoEspecificoCerveja1);
 							pesoCerveja1 = Float.parseFloat(dados.getText().toString());
 							break;
 					}
-					
+
 					//tratando do peso e preco da segunda cerveja
 					dados = (EditText) findViewById(R.id.precoCerveja2);
 					precoCerveja2 = Float.parseFloat(dados.getText().toString());
-					RadioGroup pesosCerveja2 = (RadioGroup) findViewById(R.id.radioGroupPesoCerveja2);
-					escolha = pesosCerveja2.getCheckedRadioButtonId();
+					escolha = pesosLata2.getSelectedItemPosition();
 					switch(escolha){
-						case R.id.radioButSeg250:
+						case 0:
 							pesoCerveja2 = 250.0f;
 							break;
-						case R.id.radioButSeg350:
+						case 1:
 							pesoCerveja2 = 350.0f;
 							break;
-						case R.id.radioButSeg473:
+						case 2:
 							pesoCerveja2 = 473.0f;
 							break;
-						case R.id.radioButOutro2:
+						case 3:
 							dados = (EditText) findViewById(R.id.editTextPesoEspecificoCerveja2);
 							pesoCerveja2 = Float.parseFloat(dados.getText().toString());
 							break;
 					}
-					
+
 					if(( Math.round(pesoCerveja1) == 0) || (Math.round(pesoCerveja2) == 0) )
 						throw new ArithmeticException();
-					float cerveja1 = pesoCerveja1/precoCerveja1;
-					float cerveja2 = pesoCerveja2/precoCerveja2;
-					if( (cerveja1) > (cerveja2) )
+					float cerveja1 = precoCerveja1/pesoCerveja1;
+					float cerveja2 = precoCerveja2/pesoCerveja2;
+					if( (cerveja1) < (cerveja2) )
 						Toast.makeText(v.getContext(), "A primeira cerveja é a mais barata. "+cerveja1+" "+cerveja2, Toast.LENGTH_LONG).show();
 					else
 						Toast.makeText(v.getContext(), "A segunda cerveja é a mais barata. "+cerveja1+" "+cerveja2, Toast.LENGTH_LONG).show();

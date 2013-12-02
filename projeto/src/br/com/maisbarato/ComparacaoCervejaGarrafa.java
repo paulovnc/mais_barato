@@ -50,14 +50,14 @@ public class ComparacaoCervejaGarrafa extends Activity {
 		ArrayAdapter<String> adaptador = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, pesos);
 		adaptador.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 		pesosGarrafa1.setAdapter(adaptador);
-		pesosGarrafa1.setOnItemSelectedListener(new SpinnerItemSelectedListener(pesoDistintoGarrafa1,textViewPesoDistintoGarrafa1));
-		pesosGarrafa1.setSelection(0);//peso inicial
+		pesosGarrafa1.setOnItemSelectedListener(new SpinnerItemSelectedCervejaGarrafaListener(pesoDistintoGarrafa1,textViewPesoDistintoGarrafa1));
+		//pesosGarrafa1.setSelection(0);//peso inicial
 		
 		//valores a serem adicionados no segundo spinner
 		pesosGarrafa2 = (Spinner) findViewById(R.id.pesosGarrafa2);
 		pesosGarrafa2.setAdapter(adaptador);
-		pesosGarrafa2.setOnItemSelectedListener(new SpinnerItemSelectedListener(pesoDistintoGarrafa2,textViewPesoDistintoGarrafa2));
-		pesosGarrafa2.setSelection(0);//peso inicial
+		pesosGarrafa2.setOnItemSelectedListener(new SpinnerItemSelectedCervejaGarrafaListener(pesoDistintoGarrafa2,textViewPesoDistintoGarrafa2));
+		//pesosGarrafa2.setSelection(0);//peso inicial
 		
 		//botão comparar
 		Button buttonComparar = (Button) findViewById(R.id.buttonCompararGarrafas);
